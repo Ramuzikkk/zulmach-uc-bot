@@ -6,6 +6,7 @@ from aiogram.types import Message
 from aiogram.filters import Command
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
+from app.products import PRODUCTS
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
