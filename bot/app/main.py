@@ -2,11 +2,9 @@ import asyncio
 import os
 
 from aiogram import Bot, Dispatcher
-from aiogram.types import Message
 from aiogram.filters import Command
+from aiogram.types import Message
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
-
-from app.products import PRODUCTS
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
@@ -16,16 +14,11 @@ dp = Dispatcher()
 
 def menu_keyboard():
     builder = ReplyKeyboardBuilder()
-
     builder.button(text="💎 Купить UC")
     builder.button(text="📦 Мои заказы")
     builder.button(text="🆘 Поддержка")
-
     builder.adjust(1)
-
-    return builder.as_markup(
-        resize_keyboard=True
-    )
+    return builder.as_markup(resize_keyboard=True)
 
 
 @dp.message(Command("start"))
@@ -39,21 +32,14 @@ async def start(message: Message):
 
 @dp.message()
 async def menu(message: Message):
-
     if message.text == "💎 Купить UC":
-        await message.answer(
-            "💎 Каталог UC скоро будет доступен"
-        )
+        await message.answer("💎 Каталог UC скоро будет доступен")
 
     elif message.text == "📦 Мои заказы":
-        await message.answer(
-            "📦 У вас пока нет заказов."
-        )
+        await message.answer("📦 У вас пока нет заказов.")
 
     elif message.text == "🆘 Поддержка":
-        await message.answer(
-            "🆘 Поддержка ZULMACH"
-        )
+        await message.answer("🆘 Поддержка ZULMACH")
 
 
 async def main():
