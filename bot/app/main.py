@@ -41,8 +41,7 @@ async def menu(message: Message):
 
     if message.text == "💎 Купить UC":
         await message.answer(
-            "💎 Выберите количество UC:\n\n"
-            "60 UC\n325 UC\n660 UC\n1800 UC"
+            "💎 Каталог UC скоро будет доступен"
         )
 
     elif message.text == "📦 Мои заказы":
@@ -52,8 +51,7 @@ async def menu(message: Message):
 
     elif message.text == "🆘 Поддержка":
         await message.answer(
-            "🆘 Поддержка ZULMACH\n\n"
-            "@ваш_username"
+            "🆘 Поддержка ZULMACH"
         )
 
 
