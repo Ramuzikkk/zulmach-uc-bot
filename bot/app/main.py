@@ -34,9 +34,10 @@ async def start(message: Message):
         "🔥 Добро пожаловать в ZULMACH UC BOT!\n\n"
         "Пополнение PUBG Mobile UC быстро и удобно.",
         reply_markup=menu_keyboard()
+    )
 
 
-        @dp.message()
+@dp.message()
 async def menu(message: Message):
 
     if message.text == "💎 Купить UC":
@@ -53,11 +54,11 @@ async def menu(message: Message):
         await message.answer(
             "🆘 Поддержка ZULMACH"
         )
-        
-    )
+
+
 async def main():
     await dp.start_polling(bot)
 
 
-   if __name__ == "__main__":
+if __name__ == "__main__":
     asyncio.run(main())
