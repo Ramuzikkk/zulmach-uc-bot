@@ -40,10 +40,17 @@ async def start(message: Message):
 @dp.message()
 async def menu(message: Message):
 
-    if message.text == "💎 Купить UC":
-        await message.answer(
-            "💎 Каталог UC скоро будет доступен"
+if message.text == "💎 Купить UC":
+
+    text = "💎 Доступные пакеты UC:\n\n"
+
+    for product in PRODUCTS:
+        text += (
+            f"🔹 {product['name']} — "
+            f"{product['price']} ₽\n"
         )
+
+    await message.answer(text)
 
     elif message.text == "📦 Мои заказы":
         await message.answer(
