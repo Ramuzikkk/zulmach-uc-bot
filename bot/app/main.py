@@ -29,7 +29,6 @@ async def start(message: Message):
         reply_markup=menu_keyboard()
     )
 
-
 @dp.message()
 async def menu(message: Message):
     if message.text == "💎 Купить UC":
