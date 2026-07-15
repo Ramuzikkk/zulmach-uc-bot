@@ -34,23 +34,15 @@ async def start(message: Message):
         "🔥 Добро пожаловать в ZULMACH UC BOT!\n\n"
         "Пополнение PUBG Mobile UC быстро и удобно.",
         reply_markup=menu_keyboard()
-    )
 
 
-@dp.message()
+        @dp.message()
 async def menu(message: Message):
 
-if message.text == "💎 Купить UC":
-
-    text = "💎 Доступные пакеты UC:\n\n"
-
-    for product in PRODUCTS:
-        text += (
-            f"🔹 {product['name']} — "
-            f"{product['price']} ₽\n"
+    if message.text == "💎 Купить UC":
+        await message.answer(
+            "💎 Каталог UC скоро будет доступен"
         )
-
-    await message.answer(text)
 
     elif message.text == "📦 Мои заказы":
         await message.answer(
@@ -61,8 +53,8 @@ if message.text == "💎 Купить UC":
         await message.answer(
             "🆘 Поддержка ZULMACH"
         )
-
-
+        
+    )
 async def main():
     await dp.start_polling(bot)
 
