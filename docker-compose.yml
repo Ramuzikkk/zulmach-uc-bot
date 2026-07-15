@@ -1,0 +1,8 @@
+services:
+  api:
+    build:
+      context: ./backend
+    container_name: zulmach_api
+    restart: always
+    ports:
+      - "8000:8000"
