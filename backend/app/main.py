@@ -5,12 +5,14 @@ app = FastAPI(
     version="1.0.0"
 )
 
+
 @app.get("/")
 def home():
     return {
         "status": "ok",
         "project": "ZULMACH UC BOT"
     }
+
 
 @app.get("/health")
 def health():
