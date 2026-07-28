@@ -68,15 +68,13 @@ async def menu(message: Message):
 async def main():
 
     if PROXY:
-        connector = ProxyConnector.from_url(PROXY)
-
         session = AiohttpSession(
-            connector=connector
+        proxy=PROXY
         )
 
         bot = Bot(
-            token=BOT_TOKEN,
-            session=session
+        token=BOT_TOKEN,
+        session=session
         )
 
         print("🌐 SOCKS5 proxy enabled")
