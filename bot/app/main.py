@@ -67,22 +67,27 @@ async def menu(message: Message):
 
 async def main():
 
-    if PROXY:
-        session = AiohttpSession(
-        proxy=PROXY
-        )
+    proxy = os.getenv("PROXY")
+
+    if proxy:
+
+        session = AiohttpSession(proxy=proxy)
 
         bot = Bot(
-        token=BOT_TOKEN,
-        session=session
+
+            token=BOT_TOKEN,
+
+            session=session
+
         )
 
         print("🌐 SOCKS5 proxy enabled")
 
     else:
-        bot = Bot(token=BOT_TOKEN)
-        print("🌐 Running without proxy")
 
+        bot = Bot(token=BOT_TOKEN)
+
+        print("🌐 Running without proxy")
 
     print("🤖 ZULMACH UC BOT started")
 
