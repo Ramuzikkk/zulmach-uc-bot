@@ -32,37 +32,30 @@ def menu_keyboard():
 
 
 @dp.message(Command("start"))
-
 async def start(message: Message):
-
     await message.answer(
-
-        "🔥 Добро пожаловать в ZULMACH UC BOT!\n\n"
-
-        "💎 Продажа PUBG Mobile UC\n"
-
-        "⚡ Быстрое пополнение 24/7\n"
-
-        "🛡 Надёжная поддержка\n\n"
-
+        "🔥 <b>ZULMACH UC BOT</b>\n\n"
+        "💎 <b>PUBG MOBILE UC</b>\n\n"
         "━━━━━━━━━━━━━━\n"
+        "💎 60 UC\n"
+        "💰 Цена: 99₽\n\n"
 
-        "💎 КАТАЛОГ UC\n"
+        "💎 325 UC\n"
+        "💰 Цена: 499₽\n\n"
 
+        "💎 660 UC\n"
+        "💰 Цена: 899₽\n\n"
+
+        "💎 1800 UC\n"
+        "💰 Цена: 2299₽\n"
         "━━━━━━━━━━━━━━\n\n"
 
-        "🟦 60 UC — 99₽\n"
-
-        "🟦 325 UC — 499₽\n"
-
-        "🟦 660 UC — 899₽\n"
-
-        "🟦 1800 UC — 2299₽\n\n"
-
-        "👇 Выберите нужный пакет UC в меню",
-
-        reply_markup=menu_keyboard()
-
+        "⚡ Быстрое пополнение\n"
+        "🛡 Поддержка 24/7\n\n"
+        "👇 Выберите пакет UC:",
+        
+        reply_markup=uc_keyboard(),
+        parse_mode="HTML"
     )
 
 
