@@ -5,13 +5,17 @@ from aiogram import Bot, Dispatcher
 from aiogram.filters import Command
 from aiogram.types import Message
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
+from aiogram.client.session.aiohttp import AiohttpSession
+from aiohttp_socks import ProxyConnector
+
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
+PROXY = os.getenv("PROXY")
 
 if not BOT_TOKEN:
-    raise ValueError("BOT_TOKEN не найден. Проверь файл .env")
+    raise ValueError("BOT_TOKEN не найден")
 
-bot = Bot(token=BOT_TOKEN)
+
 dp = Dispatcher()
 
 
@@ -38,6 +42,7 @@ async def start(message: Message):
 
 @dp.message()
 async def menu(message: Message):
+
     if message.text == "💎 Купить UC":
         await message.answer(
             "💎 Каталог UC скоро будет доступен."
@@ -62,6 +67,27 @@ async def menu(message: Message):
 
 
 async def main():
+
+    if PROXY:
+        connector = ProxyConnector.from_url(PROXY)
+        session = AiohttpSession(
+            connector=connector
+        )
+
+        bot = Bot(
+            token=BOT_TOKEN,
+            session=session
+        )
+
+        print("🌐 Запуск через SOCKS5 прокси")
+
+    else:
+        bot = Bot(token=BOT_TOKEN)
+        print("🌐 Запуск без прокси")
+
+
+    print("🤖 ZULMACH UC BOT запущен")
+
     await dp.start_polling(bot)
 
 
