@@ -7,7 +7,7 @@ from aiogram.types import Message
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
 from aiogram.client.session.aiohttp import AiohttpSession
 from aiohttp_socks import ProxyConnector
-
+from aiogram.types import FSInputFile
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 PROXY = os.getenv("PROXY")
@@ -33,6 +33,9 @@ def menu_keyboard():
 
 @dp.message(Command("start"))
 async def start(message: Message):
+    
+   photo = FSInputFile("assets/uc_banner.jpg")
+   
     await message.answer(
         "🔥 <b>ZULMACH UC BOT</b>\n\n"
         "💎 <b>PUBG MOBILE UC</b>\n\n"
