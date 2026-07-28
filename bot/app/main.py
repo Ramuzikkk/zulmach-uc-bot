@@ -34,9 +34,25 @@ def menu_keyboard():
 @dp.message(Command("start"))
 async def start(message: Message):
     
-   photo = FSInputFile("assets/uc_banner.jpg")
+    photo = FSInputFile("assets/uc_banner.jpg")
    
-    await message.answer(
+    await message.answer_photo(
+
+    photo=photo,
+
+    caption=(
+
+        "🔥 <b>ZULMACH UC BOT</b>\n\n"
+
+        ...
+
+    ),
+
+    reply_markup=uc_keyboard(),
+
+    parse_mode="HTML"
+
+)
         "🔥 <b>ZULMACH UC BOT</b>\n\n"
         "💎 <b>PUBG MOBILE UC</b>\n\n"
         "━━━━━━━━━━━━━━\n"
