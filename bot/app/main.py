@@ -42,7 +42,6 @@ async def start(message: Message):
 
 @dp.message()
 async def menu(message: Message):
-
     if message.text == "💎 Купить UC":
         await message.answer(
             "💎 Каталог UC скоро будет доступен."
@@ -70,6 +69,7 @@ async def main():
 
     if PROXY:
         connector = ProxyConnector.from_url(PROXY)
+
         session = AiohttpSession(
             connector=connector
         )
@@ -79,14 +79,14 @@ async def main():
             session=session
         )
 
-        print("🌐 Запуск через SOCKS5 прокси")
+        print("🌐 SOCKS5 proxy enabled")
 
     else:
         bot = Bot(token=BOT_TOKEN)
-        print("🌐 Запуск без прокси")
+        print("🌐 Running without proxy")
 
 
-    print("🤖 ZULMACH UC BOT запущен")
+    print("🤖 ZULMACH UC BOT started")
 
     await dp.start_polling(bot)
 
