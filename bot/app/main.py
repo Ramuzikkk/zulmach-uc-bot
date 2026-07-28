@@ -85,7 +85,7 @@ async def main():
 
     else:
 
-
+        bot = Bot(token=BOT_TOKEN)
         print("🌐 Running without proxy")
 
     print("🤖 ZULMACH UC BOT started")
